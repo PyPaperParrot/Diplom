@@ -1,0 +1,111 @@
+Day data
+##################################################################
+HYP
+Asymmetric Hyperbolic Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 1.285829e-05  2.569849e-08  5.862053e-03 -7.406917e-06 
+
+Call:
+fit.hypuv(data = df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                16805.92 
+AIC:                           -33603.85 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          435 
+Converged:                     TRUE 
+-------------------------------------------------------------
+NIG
+Asymmetric Normal Inverse Gaussian Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 0.5870801917  0.0001442285  0.0060519292 -0.0001530136 
+
+Call:
+fit.NIGuv(data = df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                16720.16 
+AIC:                           -33432.32 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          131 
+Converged:                     TRUE 
+
+
+#########################################################################
+Hour data
+#####################################################################
+HYP
+Asymmetric Hyperbolic Distribution:
+
+Parameters:
+   alpha.bar           mu        sigma        gamma 
+1.529347e-05 1.101082e-09 9.949711e-04 1.582187e-07 
+
+Call:
+fit.hypuv(data = hour_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                592155.4 
+AIC:                           -1184303 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          471 
+Converged:                     TRUE 
+-------------------------------------------------------------------
+NIG
+Asymmetric Normal Inverse Gaussian Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 1.253863e-01  3.503738e-06  1.255955e-03 -3.912240e-06 
+
+Call:
+fit.NIGuv(data = hour_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                594290.8 
+AIC:                           -1188574 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          189 
+Converged:                     TRUE 
+
+
+#############################################################
+Minute data
+##########################################################
+HYP
+Asymmetric Hyperbolic Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 3.912690e-07  1.213269e-12  7.635777e-05 -1.498559e-07 
+
+Call:
+fit.hypuv(data = minutes_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                1026272 
+AIC:                           -2052536 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          479 
+Converged:                     TRUE 
+-----------------------------------------------------------------------
+NIG
+Asymmetric Normal Inverse Gaussian Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 6.230636e-02  1.173240e-07  1.103290e-04 -2.971998e-07 
+
+Call:
+fit.NIGuv(data = minutes_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                1033420 
+AIC:                           -2066832 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          265 
+Converged:                     TRUE 
