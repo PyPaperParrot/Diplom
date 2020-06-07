@@ -1,0 +1,186 @@
+> ################################ KS-test
+> #kstest for NORM dist daily 
+> NORMdays.returns <- fit.gaussuv(df[[1]]) #fitting norm on data
+> NORMdays.coef = coef(NORMdays.returns)
+> summary(NORMdays.returns)
+Gaussian Distribution:
+
+Parameters:
+           mu         sigma 
+-8.702872e-06  5.917575e-03 
+
+Call:
+fit.gaussuv(data = df[[1]])
+
+Optimization information:
+log-Likelihood:                16447.16 
+AIC:                           -32890.33 
+Fitted parameters:             mu, sigma;  (Number: 2)
+Number of iterations:          0 
+Converged:                     TRUE 
+> ks.test(df[[1]], rnorm(length(df[[1]]), NORMdays.coef[[1]], NORMdays.coef[[2]]))
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  df[[1]] and rnorm(length(df[[1]]), NORMdays.coef[[1]], NORMdays.coef[[2]])
+D = 0.066336, p-value = 6.778e-09
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(df[[1]], rnorm(length(df[[1]]), NORMdays.coef[[1]], NORMdays.coef[[2]])) :
+  p-value будет примерным в присутствии повторяющихся значений
+> 
+> # kstest for nig dist daily
+> NIGday.dist = NIG(mu=0.0001442285, sigma=0.0060519292, alpha.bar=0.5870801917, gamma=-0.0001530136)
+> rnig_day = rghyp(length(df[[1]]), object=NIGday.dist)
+> summary(NIGday.returns)
+Asymmetric Normal Inverse Gaussian Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 0.5870801917  0.0001442285  0.0060519292 -0.0001530136 
+
+Call:
+fit.NIGuv(data = df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                16720.16 
+AIC:                           -33432.32 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          131 
+Converged:                     TRUE 
+> ks.test(df[[1]], rnig_day)
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  df[[1]] and rnig_day
+D = 0.052798, p-value = 8.619e-06
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(df[[1]], rnig_day) :
+  p-value будет примерным в присутствии повторяющихся значений
+> 
+> # kstest for hyp dist daily
+> HYPday.dist = hyp(mu=2.569849e-08, sigma=5.862053e-03, alpha.bar=1.285829e-05, gamma=-7.406917e-06)
+> rhyp_day = rghyp(length(df[[1]]), object=HYPday.dist)
+> summary(HYPday.returns)
+Asymmetric Hyperbolic Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 1.285829e-05  2.569849e-08  5.862053e-03 -7.406917e-06 
+
+Call:
+fit.hypuv(data = df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                16805.92 
+AIC:                           -33603.85 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          435 
+Converged:                     TRUE 
+> ks.test(df[[1]], rhyp_day)
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  df[[1]] and rhyp_day
+D = 0.044901, p-value = 0.0002633
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(df[[1]], rhyp_day) :
+  p-value будет примерным в присутствии повторяющихся значений
+> 
+> # kstest for NORM dist hour 
+> NORMhours.returns <- fit.gaussuv(df_hour[[1]]) #fitting norm on data
+> NORMhours.coef = coef(NORMhours.returns)
+> summary(NORMhours.returns)
+Gaussian Distribution:
+
+Parameters:
+           mu         sigma 
+-3.216761e-07  1.205267e-03 
+
+Call:
+fit.gaussuv(data = df_hour[[1]])
+
+Optimization information:
+log-Likelihood:                563986.5 
+AIC:                           -1127969 
+Fitted parameters:             mu, sigma;  (Number: 2)
+Number of iterations:          0 
+Converged:                     TRUE 
+> ks.test(hour_df[[1]], rnorm(length(hour_df[[1]]), NORMhours.coef[[1]], NORMhours.coef[[2]]))
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  hour_df[[1]] and rnorm(length(hour_df[[1]]), NORMhours.coef[[1]], NORMhours.coef[[2]])
+D = 0.12319, p-value < 2.2e-16
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(hour_df[[1]], rnorm(length(hour_df[[1]]), NORMhours.coef[[1]],  :
+  p-value будет примерным в присутствии повторяющихся значений
+> 
+> # kstest for nig dist hour
+> NIGhours.dist = NIG(mu=3.503738e-06, sigma=1.255955e-03, alpha.bar=1.253863e-01, gamma=-3.912240e-06)
+> rnig_hour = rghyp(length(hour_df[[1]]), object=NIGhours.dist)
+> summary(NIGhours.returns)
+Asymmetric Normal Inverse Gaussian Distribution:
+
+Parameters:
+    alpha.bar            mu         sigma         gamma 
+ 1.253863e-01  3.503738e-06  1.255955e-03 -3.912240e-06 
+
+Call:
+fit.NIGuv(data = hour_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                594290.8 
+AIC:                           -1188574 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          189 
+Converged:                     TRUE 
+> ks.test(hour_df[[1]], rnig_hour)
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  hour_df[[1]] and rnig_hour
+D = 0.066128, p-value < 2.2e-16
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(hour_df[[1]], rnig_hour) :
+  p-value будет примерным в присутствии повторяющихся значений
+> 
+> # kstest for hyp dist hour
+> HYPhour.dist = hyp(mu=1.101082e-09, sigma=9.949711e-04, alpha.bar=1.529347e-05, gamma=1.582187e-07)
+> rhyp_hour = rghyp(length(hour_df[[1]]), object=HYPhour.dist)
+> summary(HYPhour.returns)
+Asymmetric Hyperbolic Distribution:
+
+Parameters:
+   alpha.bar           mu        sigma        gamma 
+1.529347e-05 1.101082e-09 9.949711e-04 1.582187e-07 
+
+Call:
+fit.hypuv(data = hour_df[[1]], silent = TRUE)
+
+Optimization information:
+log-Likelihood:                592155.4 
+AIC:                           -1184303 
+Fitted parameters:             alpha.bar, mu, sigma, gamma;  (Number: 4)
+Number of iterations:          471 
+Converged:                     TRUE 
+> ks.test(hour_df[[1]], rhyp_hour)
+
+	Two-sample Kolmogorov-Smirnov test
+
+data:  hour_df[[1]] and rhyp_hour
+D = 0.0686, p-value < 2.2e-16
+alternative hypothesis: two-sided
+
+Предупреждение:
+В ks.test(hour_df[[1]], rhyp_hour) :
+  p-value будет примерным в присутствии повторяющихся значений

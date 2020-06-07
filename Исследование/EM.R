@@ -228,3 +228,6 @@ xx = seq(-0.028, 0.028, length=200)
 yy = w.true*dnorm(xx, mu.true[1], sigma.true[1]) + (1-w.true)*dnorm(xx, mu.true[2], sigma.true[2])
 plot(xx, yy, type='l', log='xy', col='blue')
 lines(df_hist$mids, df_hist$density, type='p')#, log='x', type='p', lwd=1)
+
+
+
