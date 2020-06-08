@@ -229,5 +229,13 @@ yy = w.true*dnorm(xx, mu.true[1], sigma.true[1]) + (1-w.true)*dnorm(xx, mu.true[
 plot(xx, yy, type='l', log='xy', col='blue')
 lines(df_hist$mids, df_hist$density, type='p')#, log='x', type='p', lwd=1)
 
+####kstest gmm day
+library(AdaptGauss)
 
+model <- densityMclust(df[[1]], G=2) 
+summary(model, parameters = TRUE) 
 
+KStestMixtures(df[[1]], Means = c(-8.210032e-05, 1.272194e-04),
+               SDs = c(sqrt(5.199482e-05)), sqrt(3.527330e-06), 
+               Weights = c(0.6493525, 0.3506475),
+               IsLogDistribution=1)
